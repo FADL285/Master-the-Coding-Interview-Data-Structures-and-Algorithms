@@ -67,6 +67,44 @@ class LinkedList {
     return this.printList();
   }
 
+  delete(index) {
+    // return false if index is out of bounds
+    if (index < 0 || index >= this.#length) {
+      return false;
+    }
+
+    // Decrease index
+    this.#length--;
+
+    if (index === 0) {
+      this.#head = this.#head.next;
+      return true;
+    }
+
+    // delete the node at index and return true
+    let prevNode = this.#head;
+    while (--index) {
+      prevNode = prevNode.next;
+    }
+    const deletedNode = prevNode.next;
+    const afterNode = deletedNode.next;
+    prevNode.next = afterNode;
+    return true;
+  }
+
+  search(value) {}
+
+  clear() {}
+
+  printList() {
+    const arrayList = [];
+    let currentNode = this.#head;
+    while (currentNode !== null) {
+      arrayList.push(currentNode.value);
+      currentNode = currentNode.next;
+    }
+    return arrayList;
+  }
 }
 
 const myLinkedList = new LinkedList(10);
@@ -89,6 +127,12 @@ myLinkedList.insert(52, 852);
 console.log(myLinkedList.printList());
 console.log(myLinkedList.length);
 console.log('#'.repeat(10) + ' Finish Inserting ' + '#'.repeat(10));
+console.log(myLinkedList.delete(0));
+console.log(myLinkedList.delete(55));
+console.log(myLinkedList.delete(3));
+console.log(myLinkedList.printList());
+console.log(myLinkedList.length);
+console.log('#'.repeat(10) + ' Finish Deleting ' + '#'.repeat(10));
 
 // ----------------------------------
 
