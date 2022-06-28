@@ -26,9 +26,34 @@ class LinkedList {
   get length() {
     return this.#length;
   }
+
+  prepend(value) {
+    const newNode = new Node(value, this.#head);
+    this.#head = newNode;
+    this.#length++;
+    return this.printList();
+  }
+
+  append(value) {
+    const newNode = new Node(value);
+    this.#tail.next = newNode;
+    this.#tail = newNode;
+    this.#length++;
+    return this.printList();
+  }
 }
 
 const myLinkedList = new LinkedList(10);
+myLinkedList.append(5);
+myLinkedList.append(28);
+myLinkedList.append(30);
+myLinkedList.append(2000);
+console.log(myLinkedList.length);
+console.log('#'.repeat(10) + ' Finish Appending ' + '#'.repeat(10));
+myLinkedList.prepend(1);
+console.log(myLinkedList.printList());
+console.log(myLinkedList.length);
+console.log('#'.repeat(10) + ' Finish Prepending ' + '#'.repeat(10));
 
 // ----------------------------------
 
