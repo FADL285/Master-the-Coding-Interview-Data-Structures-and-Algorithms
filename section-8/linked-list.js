@@ -92,7 +92,14 @@ class LinkedList {
     return true;
   }
 
-  search(value) {}
+  search(value) {
+    let currentNode = this.#head;
+    for (let index = 0; index < this.#length; index++) {
+      if (currentNode.value === value) return index;
+      currentNode = currentNode.next;
+    }
+    return -1;
+  }
 
   reverse() {
     // Check if list contains one item only
@@ -158,12 +165,16 @@ console.log(myLinkedList.delete(3));
 console.log(myLinkedList.printList());
 console.log(myLinkedList.length);
 console.log('#'.repeat(10) + ' Finish Deleting ' + '#'.repeat(10));
+console.log(myLinkedList.search(852));
+console.log(myLinkedList.search(30));
+console.log(myLinkedList.search(1));
+console.log(myLinkedList.search(111));
+console.log('#'.repeat(10) + ' Finish Searching ' + '#'.repeat(10));
 console.log(myLinkedList.reverse());
 console.log('#'.repeat(10) + ' Finish Reversing ' + '#'.repeat(10));
 myLinkedList.clear();
 console.log(myLinkedList.printList());
 console.log('#'.repeat(10) + ' Finish Clearing ' + '#'.repeat(10));
-
 
 // ----------------------------------
 
