@@ -114,7 +114,12 @@ class LinkedList {
     return this.printList();
   }
 
-  clear() {}
+  clear() {
+    // RESET VALUES
+    this.#head = null;
+    this.#tail = null;
+    this.#length = 0;
+  }
 
   printList() {
     const arrayList = [];
@@ -155,6 +160,10 @@ console.log(myLinkedList.length);
 console.log('#'.repeat(10) + ' Finish Deleting ' + '#'.repeat(10));
 console.log(myLinkedList.reverse());
 console.log('#'.repeat(10) + ' Finish Reversing ' + '#'.repeat(10));
+myLinkedList.clear();
+console.log(myLinkedList.printList());
+console.log('#'.repeat(10) + ' Finish Clearing ' + '#'.repeat(10));
+
 
 // ----------------------------------
 
