@@ -94,6 +94,26 @@ class LinkedList {
 
   search(value) {}
 
+  reverse() {
+    // Check if list contains one item only
+    if (!this.#head.next) {
+      return this.#head;
+    }
+
+    this.#tail = this.#head;
+    let first = this.#head;
+    let second = first.next;
+    while (second) {
+      const temp = second.next;
+      second.next = first;
+      first = second;
+      second = temp;
+    }
+    this.#head.next = null;
+    this.#head = first;
+    return this.printList();
+  }
+
   clear() {}
 
   printList() {
@@ -133,6 +153,8 @@ console.log(myLinkedList.delete(3));
 console.log(myLinkedList.printList());
 console.log(myLinkedList.length);
 console.log('#'.repeat(10) + ' Finish Deleting ' + '#'.repeat(10));
+console.log(myLinkedList.reverse());
+console.log('#'.repeat(10) + ' Finish Reversing ' + '#'.repeat(10));
 
 // ----------------------------------
 
