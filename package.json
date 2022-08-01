@@ -1,0 +1,12 @@
+{
+  "name": "master_the_coding_interview__data_structures_and_algorithms_course_exercises",
+  "version": "1.0.0",
+  "description": "Master the Coding Interview: Data Structures + Algorithms Course Exercises and Tutorial implementations",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Mohamed Fadl <Mohamed.Fadl2852@gmail.com>",
+  "license": "ISC"
+}
